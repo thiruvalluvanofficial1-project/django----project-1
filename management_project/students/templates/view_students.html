@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>view</title>
+
+     <style>
+        body {
+            text-align: center;
+            background-color: #808000;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            background-color: black;
+            color: white;
+            width: 60%;
+        }
+
+        th, td {
+            border: 2px solid white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #333;
+        }
+
+        a {
+            color: yellow;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<table style="border:1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for s in students %}
+
+<tr>
+    <td>{{s.student_id}}</td>
+    <td>{{s.student_name}}</td>
+    <td>{{s.student_email}}</td>
+    <td>{{s.student_age}}</td>
+    <td>
+        <a href="{% url 'update_students' s.student_id %}"> UPDATE </a>
+    </td>
+    <td>
+        <a  href="{% url 'delete_students' s.student_id %}" onclick="return confirm('Are you sure?')" > DELETE </a>
+    </td>
+</tr>
+{% endfor %}
+</table><br><br>
+<a href="{% url 'add_students' %}">
+    <button >ADD MORE STUDENTS ++ </button>
+</a><br><a href="{% url 'menu' %}"><button>back to menu</button></a>
+
+</body>
+</html>

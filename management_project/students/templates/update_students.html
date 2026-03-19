@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>update</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #808000;
+        }
+
+        form {
+            background-color: black;
+            color: white;
+            display: inline-block;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 200px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        a {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+
+    <label for="n_name">NEW NAME : </label>
+    <input type="text" id="n_name" name="new_name" value="{{new_val.student_name}}">
+    <br>
+    <br>
+    <label for="n_age">NEW AGE : </label>
+    <input type="text" id="n_age" name="new_age" value="{{new_val.student_age}}">
+    <br>
+    <br>
+    <label for="n_email">NEW EMAIL : </label>
+    <input type="text" id="n_email" name="new_email" value="{{new_val.student_email}}">
+    <br>
+    <br>
+    <button type="submit">update</button>
+    <br>
+    <button>
+        <a href="{% url 'view_students' %}">back</a>
+    </button>
+
+
+</form>
+</body>
+</html>
